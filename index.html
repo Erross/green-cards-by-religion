@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="U.S. green cards (DHS, FY2011–2024) and immigrant visas (State Department, March 2017–February 2026) grouped by the religious majority of each person's country of birth.">
+<title>Green Cards by Faith Majority</title>
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+img{max-width:100%}[hidden]{display:none!important}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column like a statistical yearbook — summary chart first, then one panel per group, sources last. */
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --fg:#1c2230; --muted:#5b6476; --rule:#dde1e8; --accent:#1f4e8c;
+  --c-christian:#2f6db5; --c-muslim:#1a8a5a; --c-hindu:#d9731a; --c-buddhist:#b8901a; --c-unaff:#7a5bb5; --c-mixed:#8a8f99; --c-jewish:#c23d6b;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12161e; --panel:#1a1f2a; --fg:#e6e9ef; --muted:#9aa3b5; --rule:#2c3341; --accent:#7fb0ef;
+  --c-christian:#6ea3e6; --c-muslim:#4cc28c; --c-hindu:#f0954a; --c-buddhist:#dcb94a; --c-unaff:#a88be0; --c-mixed:#a3a9b4; --c-jewish:#e8729a;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161e; --panel:#1a1f2a; --fg:#e6e9ef; --muted:#9aa3b5; --rule:#2c3341; --accent:#7fb0ef;
+  --c-christian:#6ea3e6; --c-muslim:#4cc28c; --c-hindu:#f0954a; --c-buddhist:#dcb94a; --c-unaff:#a88be0; --c-mixed:#a3a9b4; --c-jewish:#e8729a;
+  color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px;padding-block:36px 56px;display:grid;gap:28px}
+h1,h2{font-family:var(--display);font-weight:650;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(28px,4.4vw,42px);line-height:1.1}
+h2{font-size:22px;line-height:1.2}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+p{margin:0;max-width:68ch}
+.lede{display:grid;gap:12px}
+.lede p{color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:20px;display:grid;gap:14px;min-width:0}
+.panel-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px}
+.chip{display:inline-flex;align-items:center;gap:8px}
+.dot{width:12px;height:12px;border-radius:3px;flex:none}
+.meta{font-family:var(--mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.chart{position:relative;height:340px;min-width:0}
+.chart.big{height:420px}
+.toggle{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.toggle button{font:500 13px var(--body);background:transparent;color:var(--muted);border:0;padding:7px 12px;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:var(--panel)}
+.toggle button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:20px}
+.note{font-size:13.5px;color:var(--muted)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:13px;width:100%}
+th,td{padding:6px 10px;text-align:right;border-bottom:1px solid var(--rule);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-family:var(--mono);font-weight:500;color:var(--muted);font-size:12px}
+.sources{display:grid;gap:8px;font-size:13.5px;color:var(--muted)}
+.sources a{color:var(--accent)}
+ul{margin:0;padding-left:20px;display:grid;gap:6px;max-width:72ch}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="lede">
+    <div class="eyebrow">U.S. lawful permanent residents · fiscal years 2011–2024</div>
+    <h1>Green cards by the religious majority of the country of birth</h1>
+    <p>Every person granted a green card is counted under their country of birth (DHS Yearbook Table 3). Each country is tagged by the faith held by more than half its population, using Pew Research Center's country estimates. Countries where no group passes 50% are shown as "No majority".</p>
+  </header>
+
+  <section class="panel" aria-labelledby="all-h">
+    <div class="panel-head">
+      <h2 id="all-h">All groups</h2>
+      <div class="toggle" role="group" aria-label="Measure">
+        <button id="m-count" aria-pressed="true">Green cards</button>
+        <button id="m-share" aria-pressed="false">Share of total</button>
+      </div>
+    </div>
+    <div class="chart big"><canvas id="c-all" aria-label="Green cards by religious-majority group, FY2011 to FY2024"></canvas></div>
+    <p class="note">FY2020–21 dip reflects pandemic-era consular and USCIS slowdowns, not a policy aimed at any group. FY2024 Christian-majority surge is driven largely by Cuba (184,000, up from 82,000).</p>
+  </section>
+
+  <section class="panel" aria-labelledby="tbl-h">
+    <h2 id="tbl-h">Totals by group</h2>
+    <div class="tablewrap"><table id="tbl"></table></div>
+  </section>
+
+  <div class="grid" id="groups"></div>
+
+  <section class="panel" aria-labelledby="notes-h">
+    <h2 id="notes-h">How this was built</h2>
+    <ul>
+      <li>Counts are persons obtaining lawful permanent resident status by country of birth. FY2011–14 come from the 2020 Yearbook; FY2015–24 from the 2024 Yearbook (DHS rounds those to the nearest 10).</li>
+      <li>Country of birth is not the immigrant's religion. A Coptic Christian from Egypt counts under "Muslim-majority", a Muslim from India under "Hindu-majority". This shows where people come from, not what they believe.</li>
+      <li>Classification uses Pew's 2010 Global Religious Landscape figures throughout so groups stay fixed across years. Borderline cases: the Netherlands, Suriname, Benin and Uruguay are just over 50% Christian; Nigeria is roughly evenly split; China, Japan and Czechia are majority religiously unaffiliated; Vietnam, South Korea and Taiwan have no group above 50%.</li>
+      <li>Not classified: "Unknown", "All other countries", and births in the former USSR or Czechoslovakia (2,000–6,000 a year), plus the small "United States" country-of-birth row.</li>
+      <li>Dashed lines mark inaugurations (Jan 20, 2017 and Jan 20, 2021). Because fiscal years start in October, each line sits partway into the fiscal year it falls in. Green cards issued early in a term mostly reflect applications filed under the previous administration.</li>
+      <li>Each group chart shows its eight largest countries; the rest of the group is summed as "Other countries".</li>
+    </ul>
+    <div class="sources">
+      <span>Sources: <a href="https://ohss.dhs.gov/topics/immigration/yearbook/2024" target="_blank" rel="noopener">DHS OHSS Yearbook 2024, Table 3</a> · <a href="https://ohss.dhs.gov/topics/immigration/yearbook/2020" target="_blank" rel="noopener">DHS OHSS Yearbook 2020, Table 3</a> · <a href="https://www.pewresearch.org/religion/2012/12/18/global-religious-landscape-exec/" target="_blank" rel="noopener">Pew Research Center, The Global Religious Landscape</a></span>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="iv-h">
+    <div class="eyebrow">Different dataset · State Department · March 2017 – February 2026</div>
+    <div class="panel-head">
+      <h2 id="iv-h">Immigrant visas issued abroad, monthly</h2>
+      <div class="toggle" role="group" aria-label="Measure for visa chart">
+        <button id="iv-count" aria-pressed="true">Visas</button>
+        <button id="iv-share" aria-pressed="false">Share of month</button>
+      </div>
+    </div>
+    <p>DHS hasn't published green card counts by country after FY2024, so this chart uses the closest current data: immigrant visas issued each month by U.S. consulates, by nationality. An immigrant visa is the document someone abroad uses to enter the U.S. and receive a green card on arrival.</p>
+    <p class="note"><strong>This is not the same count as the charts above.</strong> It covers only people processed overseas, roughly half of all green cards. It leaves out everyone who adjusts status from inside the U.S.: refugees, asylees, parolees and most employment cases. That is why Cuba and Afghanistan look much smaller here than in the DHS numbers. Compare the lines to each other, not to the DHS totals.</p>
+    <div class="chart big"><canvas id="c-iv" aria-label="Monthly immigrant visas by religious-majority group, March 2017 to February 2026"></canvas></div>
+    <div class="note">
+      Event markers along the bottom:
+      <strong>A</strong> Mar 2020, routine visa services suspended worldwide for COVID, then an April 2020 proclamation pausing most immigrant entry (lifted Feb 2021).
+      <strong>B</strong> Jun 9, 2025, entry ban on nationals of 12 countries and partial limits on 7 more.
+      <strong>C</strong> Jan 21, 2026, immigrant visa processing paused for nationals of 75 countries on public-charge grounds.
+    </div>
+    <h2 style="font-size:18px">Fiscal-year totals</h2>
+    <div class="tablewrap"><table id="iv-tbl"></table></div>
+    <p class="note">Visa counts are as issued, by "foreign state of chargeability" (usually country of birth). FY2017 starts in March, FY2020 is missing September (never published), and FY2026 runs October–February only. Countries use the same religious-majority tags as above; Taiwan-born applicants are counted under "No majority". Comparing January–February 2026 with the same months of 2025: Afghanistan fell from 3,314 to 15, Yemen 2,066 to 10, Sudan 743 to 7, Cuba 3,246 to 129, Nigeria 2,020 to 87, Haiti 715 to 30, Pakistan and Bangladesh about 75%, while India fell 26% and the Philippines 13%.</p>
+    <div class="sources">
+      <span>Sources: <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-statistics/immigrant-visa-statistics/monthly-immigrant-visa-issuances.html" target="_blank" rel="noopener">U.S. State Department, Monthly Immigrant Visa Issuance Statistics</a> (107 monthly reports, each checked against its published grand total) · <a href="https://isso.columbia.edu/node/2511" target="_blank" rel="noopener">June 2025 travel proclamation</a> · <a href="https://www.millercanfield.com/resources-State-Dept-Pauses-Immigrant-Visa-Processing-75-Countries.html" target="_blank" rel="noopener">January 2026 immigrant visa pause</a></span>
+    </div>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const YEARS=[2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024];
+const TOTAL=[1062040,1031631,990553,1016518,1051030,1183510,1127170,1096610,1031770,707360,740000,1018350,1172910,1364090];
+const GROUPS=[
+ {key:"Christian",label:"Christian-majority",color:"--c-christian",n:129,
+  total:[616774,606872,592616,582659,632070,711810,692190,690560,656770,421710,435110,590010,745350,899220],
+  top:[["Mexico",[143446,146406,135028,134052,158620,174530,170580,161860,156050,100330,107230,138770,180530,202600]],["Cuba",[36452,32820,32219,46679,54400,66520,65030,76490,41640,16370,23080,36640,81600,184040]],["Dominican Republic",[46109,41566,41311,44577,50610,61160,58520,57410,49910,30010,24550,40150,68870,69630]],["Philippines",[57011,57327,54446,49996,56480,53290,49150,47260,45920,25490,27510,36000,49200,48820]],["El Salvador",[18667,16256,18260,19273,19490,23450,25110,28330,27660,17910,18670,30880,26210,31110]],["Colombia",[22635,20931,21131,18175,17320,18610,17960,17550,19840,11990,15290,21720,24810,30140]],["Jamaica",[19662,20705,19400,19026,17640,23350,21910,20350,21690,12830,13360,16480,21460,28670]],["Haiti",[22111,22818,20351,15274,16970,23580,21820,21360,17250,9340,11460,10430,15450,10800]]]},
+ {key:"Muslim",label:"Muslim-majority",color:"--c-muslim",n:47,
+  total:[138683,133309,118066,149429,152670,177960,167520,159000,131540,98060,83140,129900,171830,199860],
+  top:[["Pakistan",[15546,14740,13251,18612,18060,19310,17410,15800,13920,10470,9690,11780,11110,23310]],["Bangladesh",[16707,14705,12099,14645,13570,18720,14690,15720,15180,9270,6410,10860,18910,16600]],["Afghanistan",[1648,1617,2196,10527,8330,12510,19540,12940,10140,11410,9490,14190,30300,50310]],["Iraq",[21133,20369,9552,19153,21110,18900,14200,14350,6510,2270,1730,2800,3960,4040]],["Iran",[14822,12916,12863,11615,13110,13300,13790,10120,6640,8810,5730,9410,11450,10050]],["Egypt",[7778,8988,10294,11477,12090,12050,9830,9830,9480,6160,4400,8350,10190,9420]],["Turkey",[4403,4162,4144,3834,4200,4470,4840,5590,5710,4360,4470,7000,7330,8030]],["Yemen",[3361,2620,3532,3492,3190,13040,6030,1890,3720,5910,4350,5650,5580,6050]]]},
+ {key:"Hindu",label:"Hindu-majority",color:"--c-hindu",n:3,
+  total:[79280,77823,81587,90346,77150,77650,72100,71840,64800,54280,100830,139110,90060,79730],
+  top:[["India",[69013,66434,68458,77908,64120,64690,60390,59820,54500,46360,93450,127010,78070,66800]],["Nepal",[10166,11312,13046,12357,12930,12850,11610,11950,10200,7850,7310,12010,11930,12850]],["Mauritius",[101,77,83,81,100,110,100,70,100,70,70,90,60,80]]]},
+ {key:"Unaffiliated",label:"Unaffiliated-majority",color:"--c-unaff",n:6,
+  total:[96013,90902,80884,84880,82940,90400,79420,72330,69700,47780,55800,75040,66300,77850],
+  top:[["China",[87016,81784,71798,76089,74560,81770,71570,65210,62250,41480,49850,67950,59260,71470]],["Japan",[6161,6061,5925,5545,5400,5210,4640,4320,4500,3910,3960,4180,4060,3740]],["Hong Kong",[2306,2104,2226,2278,2090,2510,2420,2080,2020,1780,1330,2300,2290,1950]]]},
+ {key:"Mixed",label:"No majority",color:"--c-mixed",n:9,
+  total:[78616,72451,73219,72234,68370,87270,80180,74370,83990,66630,49230,62600,77680,83400],
+  top:[["Vietnam",[34157,28304,27101,30283,30830,41450,38230,33830,39710,30000,16310,24430,36000,39080]],["South Korea",[22824,20846,23166,20423,17140,21800,19190,17680,18480,16240,12350,16170,15770,15100]],["Nigeria",[11824,13575,13840,12828,11540,14380,13540,13950,15890,12400,13100,12390,15790,19610]],["Taiwan",[6154,5331,5385,4697,4890,5120,4860,5080,5800,4760,4250,5090,5300,5020]]]},
+ {key:"Buddhist",label:"Buddhist-majority",color:"--c-buddhist",n:7,
+  total:[43145,43147,35225,30399,31830,31020,29190,22370,18070,13350,10420,15320,15690,16260],
+  top:[["Burma",[16518,17383,12565,11144,12810,13070,12900,8180,5020,4000,2140,2880,3970,3440]],["Thailand",[9962,9459,7583,6197,7500,7040,6310,5560,5550,4180,4040,4630,5230,5390]],["Bhutan",[10137,10198,8954,7298,6330,4220,2940,2350,1440,1090,140,210,210,180]],["Cambodia",[2745,2473,2624,2536,1870,3170,4060,3190,2750,1590,1760,3400,2470,2930]],["Sri Lanka",[2053,1994,1847,1767,1760,1910,1630,1590,1690,1460,1230,2570,2270,2290]]]},
+ {key:"Jewish",label:"Jewish-majority",color:"--c-jewish",n:1,
+  total:[3826,4153,3996,3805,3970,4140,3800,3710,4300,3690,3100,3440,3650,3800],
+  top:[["Israel",[3826,4153,3996,3805,3970,4140,3800,3710,4300,3690,3100,3440,3650,3800]]]}
+];
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const fmt=v=>v.toLocaleString("en-US");
+const shades=(hex,k)=>{const n=parseInt(hex.replace("#",""),16),r=n>>16,g=(n>>8)&255,b=n&255;return Array.from({length:k},(_,i)=>`rgba(${r},${g},${b},${(1-i*(0.78/Math.max(k-1,1))).toFixed(2)})`);};
+
+// table
+(function(){
+  const t=document.getElementById("tbl");
+  let h="<thead><tr><th>Group</th>"+YEARS.map(y=>`<th>FY${String(y).slice(2)}</th>`).join("")+"<th>2024 share</th></tr></thead><tbody>";
+  for(const g of GROUPS){h+=`<tr><td><span class="chip"><span class="dot" style="background:var(${g.color})"></span>${g.label}</span></td>`+g.total.map(v=>`<td>${fmt(v)}</td>`).join("")+`<td>${(g.total[13]/TOTAL[13]*100).toFixed(1)}%</td></tr>`;}
+  h+=`<tr><td><strong>All countries</strong></td>`+TOTAL.map(v=>`<td><strong>${fmt(v)}</strong></td>`).join("")+`<td>100%</td></tr></tbody>`;
+  t.innerHTML=h;
+})();
+
+// group panels
+const host=document.getElementById("groups");
+for(const g of GROUPS){
+  const s=document.createElement("section");s.className="panel";
+  const sum=g.total.reduce((a,b)=>a+b,0);
+  s.innerHTML=`<div class="panel-head"><h2 class="chip"><span class="dot" style="background:var(${g.color})"></span>${g.label}</h2><span class="meta">${g.n} ${g.n==1?"country":"countries"} · ${fmt(sum)} total</span></div><div class="chart"><canvas id="c-${g.key}" aria-label="${g.label} green cards by country"></canvas></div>`;
+  host.appendChild(s);
+}
+
+// Presidency boundaries are fractional category indexes, so a line can sit inside a fiscal year or month.
+// Annual charts: Jan 20 is about 31 percent of the way into the fiscal year that started in October.
+const ANNUAL_TERMS={cuts:[YEARS.indexOf(2017)-1+0.31,YEARS.indexOf(2021)-1+0.31],names:["Obama","Trump","Biden"]};
+const presidencies={id:"presidencies",
+  afterDatasetsDraw(chart,args,opts){
+    if(!opts||!opts.cuts) return;
+    const {ctx,chartArea:a,scales:{x}}=chart; const n=chart.data.labels.length;
+    const px=i=>{const lo=Math.max(0,Math.floor(i)),hi=Math.min(lo+1,n-1);return x.getPixelForValue(lo)+(x.getPixelForValue(hi)-x.getPixelForValue(lo))*(i-lo);};
+    const bounds=[a.left,...opts.cuts.map(px),a.right];
+    ctx.save();
+    ctx.strokeStyle=css("--fg"); ctx.globalAlpha=.55; ctx.setLineDash([5,4]); ctx.lineWidth=1.25;
+    for(const b of bounds.slice(1,-1)){ctx.beginPath();ctx.moveTo(b,a.top-16);ctx.lineTo(b,a.bottom);ctx.stroke();}
+    ctx.setLineDash([]); ctx.globalAlpha=1; ctx.fillStyle=css("--muted");
+    ctx.font="500 11px 'IBM Plex Mono', monospace"; ctx.textAlign="center"; ctx.textBaseline="bottom";
+    opts.names.forEach((t,i)=>ctx.fillText(t.toUpperCase(),(bounds[i]+bounds[i+1])/2,a.top-4));
+    for(const e of (opts.events||[])){
+      const p=px(e.i); ctx.strokeStyle=css("--accent"); ctx.lineWidth=1; ctx.setLineDash([2,3]);
+      ctx.beginPath(); ctx.moveTo(p,a.top); ctx.lineTo(p,a.bottom-16); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle=css("--accent"); ctx.beginPath(); ctx.arc(p,a.bottom-8,8,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=css("--panel"); ctx.font="600 10px 'IBM Plex Mono', monospace"; ctx.textBaseline="middle"; ctx.fillText(e.label,p,a.bottom-8);
+    }
+    ctx.restore();
+  }};
+
+// State Department monthly immigrant visa issuances (Sept 2020 never published).
+const IV_MONTHS=["2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02"];
+const IV={"Christian": [30516, 26731, 32566, 28847, 27784, 27824, 22502, 27882, 22983, 23500, 31007, 32210, 29181, 29815, 28669, 28656, 25692, 28026, 23147, 25005, 22793, 21676, 23697, 21291, 22510, 22232, 22191, 21114, 20628, 18987, 19900, 19848, 17183, 20209, 21796, 21197, 13995, 780, 470, 1106, 2348, 2783, 4829, 5096, 6145, 6218, 7310, 11758, 12563, 14527, 21751, 23479, 26812, 29620, 24672, 22983, 24572, 20498, 22866, 28390, 25028, 26076, 28845, 24130, 31510, 30906, 28635, 27938, 28335, 27244, 27912, 39957, 29075, 32661, 30106, 28136, 26548, 24459, 28161, 26390, 27840, 28253, 29532, 29326, 34410, 32065, 29307, 32345, 32139, 32032, 32303, 23891, 24397, 30444, 29178, 30588, 28744, 28094, 26497, 25739, 23186, 25768, 29886, 23747, 26758, 23650, 19683], "Muslim": [9248, 10029, 9997, 6841, 6599, 8601, 7249, 9928, 7011, 6413, 6448, 6406, 6217, 6408, 6553, 5659, 6596, 7228, 7393, 6896, 6148, 5606, 6240, 5627, 6539, 6975, 7144, 6947, 7678, 8049, 9213, 9703, 7844, 8835, 10196, 8418, 4766, 204, 52, 199, 722, 1593, 2036, 2554, 2318, 2621, 2862, 4320, 5304, 4657, 7920, 8502, 10975, 9508, 5334, 5234, 5546, 4909, 6343, 8885, 7668, 7766, 10624, 9582, 12636, 14580, 7652, 8005, 8116, 9833, 9991, 12154, 10152, 13000, 10911, 10501, 11062, 7206, 8613, 10486, 10416, 12702, 13467, 12876, 11951, 14209, 11902, 14408, 16311, 17544, 16407, 14750, 15941, 14069, 12381, 11541, 11898, 10650, 9461, 9819, 10414, 10860, 11205, 9456, 9307, 3757, 808], "Hindu": [3351, 2976, 3487, 2725, 2330, 2180, 1854, 2739, 2450, 2881, 3230, 2823, 3496, 3264, 3446, 2893, 2581, 2339, 1943, 2606, 2534, 2272, 2805, 2639, 2741, 2692, 2708, 2907, 2641, 1966, 1661, 2463, 2277, 2949, 3164, 2687, 1568, 98, 11, 23, 118, 220, 458, 561, 752, 1125, 1236, 1828, 1169, 450, 1345, 1943, 2465, 2357, 1555, 1786, 2442, 2054, 2589, 3403, 3310, 2628, 3693, 3416, 4758, 3536, 2870, 3229, 3553, 3515, 3256, 4045, 3641, 4221, 3470, 2238, 2973, 3406, 2922, 3039, 2923, 3164, 2962, 2890, 3453, 3664, 2889, 3900, 3173, 2523, 3927, 2728, 3122, 3362, 3110, 2650, 2276, 2242, 1878, 2287, 2808, 2584, 2766, 2740, 2095, 1801, 2122], "Unaffiliated": [3764, 2807, 4290, 2984, 2283, 2782, 1610, 3198, 3353, 3322, 2809, 2338, 2662, 2273, 2432, 2695, 2478, 2592, 2173, 2350, 2632, 2405, 2131, 1848, 1894, 2592, 2487, 2807, 2792, 3090, 3009, 2304, 2920, 3090, 3221, 384, 327, 50, 19, 65, 447, 685, 529, 467, 445, 337, 267, 565, 1872, 2659, 3853, 4004, 3208, 3023, 2528, 2777, 2694, 1827, 1309, 2161, 1476, 1425, 1721, 1917, 2155, 3714, 1547, 2074, 1266, 927, 2030, 3140, 2286, 2395, 2230, 1459, 1893, 1163, 1423, 1259, 1116, 2099, 1870, 3006, 2926, 3132, 3091, 4722, 3451, 920, 3638, 3250, 3237, 2300, 1971, 2668, 1511, 1855, 1880, 3044, 2376, 1375, 1798, 2132, 2150, 2279, 1605], "Mixed": [3993, 4386, 3986, 3337, 2914, 3063, 2150, 3839, 3025, 4204, 3821, 3354, 4419, 4100, 3215, 3167, 4379, 5384, 3577, 4254, 3997, 3265, 4129, 2815, 3370, 3605, 4243, 4159, 5155, 5327, 5168, 5171, 4669, 5080, 4249, 4446, 3374, 359, 122, 154, 703, 709, 721, 1273, 1297, 1299, 1244, 2710, 3524, 3477, 2491, 1539, 1401, 1808, 1549, 2088, 2297, 2958, 2120, 3716, 3635, 3384, 3674, 3276, 5239, 3746, 3540, 3768, 4103, 2191, 2991, 4284, 3598, 3915, 4410, 4982, 5823, 3932, 4983, 3749, 3337, 3581, 3031, 4859, 3933, 4840, 4442, 5933, 6077, 3990, 5489, 4133, 3480, 3152, 3621, 3425, 3073, 3212, 2941, 3788, 4516, 4526, 5857, 4080, 5364, 2719, 2098], "Buddhist": [726, 631, 694, 648, 610, 590, 398, 528, 528, 463, 511, 537, 678, 513, 634, 607, 610, 842, 529, 507, 516, 476, 525, 436, 521, 429, 562, 566, 607, 624, 486, 425, 481, 439, 465, 483, 324, 27, 19, 15, 50, 84, 98, 172, 253, 255, 248, 448, 368, 405, 519, 464, 553, 1079, 554, 709, 775, 739, 674, 946, 707, 783, 728, 776, 786, 664, 479, 518, 538, 745, 728, 1082, 847, 806, 743, 783, 837, 595, 561, 468, 625, 676, 641, 598, 648, 784, 723, 799, 853, 901, 970, 792, 709, 877, 697, 615, 589, 573, 615, 543, 734, 792, 814, 493, 723, 330, 88], "Jewish": [59, 38, 54, 61, 30, 49, 33, 47, 52, 36, 33, 47, 53, 26, 87, 79, 69, 100, 26, 74, 33, 50, 30, 54, 43, 48, 58, 29, 67, 47, 36, 52, 72, 64, 45, 43, 29, 3, 4, 5, 24, 26, 16, 14, 23, 25, 35, 41, 41, 29, 53, 73, 77, 59, 53, 70, 71, 54, 41, 54, 38, 34, 69, 51, 53, 40, 27, 45, 34, 40, 43, 52, 41, 70, 31, 40, 72, 38, 32, 46, 22, 42, 60, 78, 61, 84, 55, 60, 73, 73, 98, 67, 58, 84, 100, 86, 102, 125, 81, 100, 88, 61, 74, 72, 79, 63, 79]};
+const ivIdx=(m,frac)=>IV_MONTHS.indexOf(m)+frac;
+const IV_TERMS={cuts:[ivIdx("2021-01",0.63),ivIdx("2025-01",0.63)],names:["Trump","Biden","Trump"],
+  events:[{i:ivIdx("2020-03",0.6),label:"A"},{i:ivIdx("2025-06",0.27),label:"B"},{i:ivIdx("2026-01",0.65),label:"C"}]};
+const IV_KEYS=Object.keys(IV);
+const ivTotal=IV_MONTHS.map((_,i)=>IV_KEYS.reduce((s,k)=>s+IV[k][i],0));
+const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const ivLabels=IV_MONTHS.map(m=>MON[+m.slice(5)-1]+" "+m.slice(2,4));
+(function(){
+  const fy=m=>+m.slice(0,4)+(+m.slice(5)>=10?1:0);
+  const fys=[...new Set(IV_MONTHS.map(fy))];
+  const agg=k=>fys.map(f=>IV_MONTHS.reduce((s,m,i)=>s+(fy(m)===f?(k?IV[k][i]:ivTotal[i]):0),0));
+  const lab=f=>"FY"+String(f).slice(2)+([2017,2020,2026].includes(f)?"*":"");
+  let h="<thead><tr><th>Group</th>"+fys.map(f=>`<th>${lab(f)}</th>`).join("")+"</tr></thead><tbody>";
+  for(const g of GROUPS){h+=`<tr><td><span class="chip"><span class="dot" style="background:var(${g.color})"></span>${g.label}</span></td>`+agg(g.key).map(v=>`<td>${fmt(v)}</td>`).join("")+"</tr>";}
+  h+=`<tr><td><strong>All nationalities</strong></td>`+agg(null).map(v=>`<td><strong>${fmt(v)}</strong></td>`).join("")+"</tr></tbody>";
+  document.getElementById("iv-tbl").innerHTML=h;
+})();
+
+let charts=[]; let mode="count";
+function baseOpts(stacked,yfmt,terms=ANNUAL_TERMS){
+  const fg=css("--muted"),grid=css("--rule");
+  return {responsive:true,maintainAspectRatio:false,animation:{duration:window.matchMedia("(prefers-reduced-motion: reduce)").matches?0:400},
+    interaction:{mode:"index",intersect:false}, layout:{padding:{top:20}},
+    plugins:{legend:{position:"bottom",labels:{color:css("--fg"),boxWidth:12,boxHeight:12,font:{family:"Public Sans",size:12}}},
+      tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${yfmt(c.parsed.y)}`}},presidencies:terms},
+    scales:{x:{stacked,grid:{display:false},ticks:{color:fg,font:{family:"IBM Plex Mono",size:11}}},
+      y:{stacked,beginAtZero:true,grid:{color:grid},border:{display:false},ticks:{color:fg,font:{family:"IBM Plex Mono",size:11},callback:v=>yfmt(v)}}}};
+}
+const kfmt=v=>v>=1000?(v/1000).toLocaleString("en-US",{maximumFractionDigits:1})+"k":String(Math.round(v));
+function draw(){
+  charts.forEach(c=>c.destroy());charts=[];
+  const labels=YEARS.map(String);
+  const share=mode==="share";
+  charts.push(new Chart(document.getElementById("c-all"),{type:"line",data:{labels,datasets:GROUPS.map(g=>({label:g.label,data:share?g.total.map((v,i)=>v/TOTAL[i]*100):g.total,borderColor:css(g.color),backgroundColor:css(g.color),borderWidth:2.5,pointRadius:2.5,tension:.25}))},
+    options:baseOpts(false,share?(v=>(+v).toFixed(v<10?1:0)+"%"):(v=>share?v:(v>=1000?kfmt(v):fmt(v))))}));
+  for(const g of GROUPS){
+    const col=css(g.color);
+    const ds=g.top.map(([n,v],i)=>({label:n,data:v}));
+    const rest=g.total.map((t,i)=>t-g.top.reduce((s,[,v])=>s+v[i],0));
+    if(rest.some(x=>x>50)) ds.push({label:"Other countries",data:rest});
+    const cols=shades(col,ds.length);
+    ds.forEach((d,i)=>{d.backgroundColor=cols[i];d.borderColor=css("--panel");d.borderWidth=1;});
+    charts.push(new Chart(document.getElementById("c-"+g.key),{type:"bar",data:{labels,datasets:ds},options:baseOpts(true,v=>kfmt(v))}));
+  }
+  const ivShare=ivMode==="share";
+  const pf=v=>(+v).toFixed(v<10?1:0)+"%";
+  const o=baseOpts(false,ivShare?pf:(v=>v>=1000?kfmt(v):fmt(v)),IV_TERMS);
+  Object.assign(o.scales.x.ticks,{maxRotation:0,autoSkip:true,maxTicksLimit:10});
+  charts.push(new Chart(document.getElementById("c-iv"),{type:"line",data:{labels:ivLabels,datasets:GROUPS.map(g=>({label:g.label,data:ivShare?IV[g.key].map((v,i)=>v/ivTotal[i]*100):IV[g.key],borderColor:css(g.color),backgroundColor:css(g.color),borderWidth:2,pointRadius:0,pointHoverRadius:3,tension:.2}))},options:o}));
+}
+let ivMode="count";
+function setIv(m){ivMode=m;document.getElementById("iv-count").setAttribute("aria-pressed",m==="count");document.getElementById("iv-share").setAttribute("aria-pressed",m==="share");draw();}
+document.getElementById("iv-count").onclick=()=>setIv("count");
+document.getElementById("iv-share").onclick=()=>setIv("share");
+function setMode(m){mode=m;document.getElementById("m-count").setAttribute("aria-pressed",m==="count");document.getElementById("m-share").setAttribute("aria-pressed",m==="share");draw();}
+document.getElementById("m-count").onclick=()=>setMode("count");
+document.getElementById("m-share").onclick=()=>setMode("share");
+function ready(){ if(window.Chart){Chart.defaults.font.family="Public Sans";Chart.register(presidencies);draw();} }
+ready();
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",draw);
+new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+</script>
+</body>
+</html>
